@@ -634,7 +634,7 @@ sub tagfile {
         $fext=($is_case_tolerant && (lc $1)) || $1;
         do {$_=$scanfile_filename;return;} if $bad_extensions{$fext};
     }
-    if (defined(%good_extensions)) {
+    if (%good_extensions) {
         do {$_=$scanfile_filename;return;} unless defined($fext);
         do {$_=$scanfile_filename;return;} unless defined($good_extensions{$fext});
     }
@@ -1114,7 +1114,7 @@ sub processpage {
             if (length($functionref->{"briefcomment"})||length($functionref->{"comment"})||scalar(keys %{$functionref->{"commenttags"}})) {
                 $classbody{$classname}.="<b>".formatstr($functionref->{"briefcomment"}, 1)."</b><BR>";
                 $classbody{$classname}.=formatstr($functionref->{"comment"}, 1);
-                if (defined(%doc_tags)) {
+                if (%doc_tags) {
                     foreach $tag (keys %doc_tags) {
                         foreach $tagval (@{$functionref->{"commenttags"}->{$tag}}) {
                             $tagval = formatstr($tagval, 1);
@@ -1154,7 +1154,7 @@ sub processpage {
                 if (length($classdata->{"briefcomment"})||length($classdata->{"comment"})||scalar(keys %{$classdata->{"commenttags"}})) {
                     $funcbody.="<b>".formatstr($classdata->{'briefcomment'}, 1)."</b><br>\n";
                     $funcbody.=formatstr($classdata->{'comment'}, 1);
-                    if (defined(%doc_tags)) {
+                    if (%doc_tags) {
                         foreach $tag (keys %doc_tags) {
                             foreach $tagval (@{$functionref->{"commenttags"}->{$tag}}) {
                                 $tagval = formatstr($tagval, 1);
@@ -1722,10 +1722,10 @@ sub generate_references {
     print $INDEX &javascript_search(1);
     print $INDEX "<h2>Variable List (alphabetical)</h2>\n";
     print $INDEX "Total unique variables names: ".scalar(keys %var_ids)."<ul>\n";
-    if (defined(@varlist_defs)) {
+    if (@varlist_defs) {
         print $INDEX "<li><a href=\"#def\">Variables defined on the site</a>: ".scalar(@varlist_defs)."</li>\n";
     }
-    if (defined(@varlist_other)) {
+    if (@varlist_other) {
         print $INDEX "<li><a href=\"#other\">Other Variables</a>: ".scalar(@varlist_other)."</li>\n";
     }
     print $INDEX "</ul>\n";
@@ -1854,13 +1854,13 @@ sub generate_references {
     print $INDEX &javascript_search(1);
     print $INDEX "<h2>Function List (alphabetical)</h2>\n"; 
     print $INDEX "Total unique function names: ".scalar(keys %func_ids)."<ul>\n";
-    if (defined(@funclist_defs)) {
+    if (@funclist_defs) {
         print $INDEX "<li><a href=\"#def\">Functions defined on the site</A>: ".scalar(@funclist_defs)."</li>\n";
     }
-    if (defined(@funclist_php)) {
+    if (@funclist_php) {
         print $INDEX "<li><a href=\"#php\">PHP functions used on the site</a>: ".scalar(@funclist_php)."</li>\n";
     }
-    if (defined(@funclist_other)) {
+    if (@funclist_other) {
         print $INDEX "<li><a href=\"#other\">Undefined functions</a>: ".scalar(@funclist_other)."</li>\n";
     }
     print $INDEX "</ul>\n";
