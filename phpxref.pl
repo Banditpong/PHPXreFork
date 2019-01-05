@@ -2394,34 +2394,31 @@ sub javascript_search {
     my $depth=shift;
     my $relbase="../" x $depth;
     my $j=<<__EOS__;
-<script language="JavaScript" type="text/javascript">
-<!--
+<div id="searchbox-outer">
+<table align="center" class="searchbox-table"><tr><td><a class="searchbox-link" href="javascript:void(0)" onMouseOver="showSearchBox()">Search</a><br>
+<table border="0" cellspacing="0" cellpadding="0" class="searchbox" id="searchbox">
+<tr><td class="searchbox-title">
+<a class="searchbox-title" href="javascript:showSearchPopup()">Search History +</a>
+</td></tr>
 
-document.writeln('<table align="right" class="searchbox-link"><tr><td><a class="searchbox-link" href="javascript:void(0)" onMouseOver="showSearchBox()">Search</a><br>');
-document.writeln('<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"searchbox\" id=\"searchbox\">');
-document.writeln('<tr><td class=\"searchbox-title\">');
-document.writeln('<a class="searchbox-title" href="javascript:showSearchPopup()">Search History +</a>');
-document.writeln('<\\/td><\\/tr>');
-
-document.writeln('<tr><td class=\"searchbox-body\" id=\"searchbox-body\">');
-document.writeln('<form name="search" style="margin:0px; padding:0px" onSubmit=\\'return jump()\\'>');
-document.writeln('<a class="searchbox-body" href="${relbase}_classes/index.$ext">Class<\\/a>: ');
-document.writeln('<input type="text" size=10 value="" name="classname"><br>');
-document.writeln('<a id="funcsearchlink" class="searchbox-body" href="${relbase}_functions/index.$ext">Function<\\/a>: ');
-document.writeln('<input type="text" size=10 value="" name="funcname"><br>');
-document.writeln('<a class="searchbox-body" href="${relbase}_variables/index.$ext">Variable<\\/a>: ');
-document.writeln('<input type="text" size=10 value="" name="varname"><br>');
-document.writeln('<a class="searchbox-body" href="${relbase}_constants/index.$ext">Constant<\\/a>: ');
-document.writeln('<input type="text" size=10 value="" name="constname"><br>');
-document.writeln('<a class="searchbox-body" href="${relbase}_tables/index.$ext">Table<\\/a>: ');
-document.writeln('<input type="text" size=10 value="" name="tablename"><br>');
-document.writeln('<input type="submit" class="searchbox-button" value="Search">');
-document.writeln('<\\/form>');
-document.writeln('<\\/td><\\/tr><\\/table>');
-document.writeln('<\\/td><\\/tr><\\/table>');
-// -->
-</script>
+<tr><td class="searchbox-body" id="searchbox-body">
+<form name="search" style="margin:0px; padding:0px" onSubmit='return jump()'>
+<a class="searchbox-body" href="${relbase}_classes/index.html">Class</a>
+<input type="text" size=10 value="" name="classname"><br>
+<a id="funcsearchlink" class="searchbox-body" href="${relbase}_functions/index.html">Function</a>
+<input type="text" size=10 value="" name="funcname"><br>
+<a class="searchbox-body" href="${relbase}_variables/index.html">Variable</a>
+<input type="text" size=10 value="" name="varname"><br>
+<a class="searchbox-body" href="${relbase}_constants/index.html">Constant</a>
+<input type="text" size=10 value="" name="constname"><br>
+<a class="searchbox-body" href="${relbase}_tables/index.html">Table</a>
+<input type="text" size=10 value="" name="tablename"><br>
+<input type="submit" class="searchbox-button" value="Search">
+</form>
+</td></table><tr></table>
+</td></tr></table>
 <div id="search-popup" class="searchpopup"><p id="searchpopup-title" class="searchpopup-title">title</p><div id="searchpopup-body" class="searchpopup-body">Body</div><p class="searchpopup-close"><a href="javascript:gwCloseActive()">[close]</a></p></div>
+</div>
 __EOS__
     return($j);
 }
