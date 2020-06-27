@@ -2403,15 +2403,15 @@ sub javascript_search {
 
 <tr><td class="searchbox-body" id="searchbox-body">
 <form name="search" style="margin:0px; padding:0px" onSubmit='return jump()'>
-<a class="searchbox-body" href="${relbase}_classes/index.html">Class</a>
+<a class="searchbox-body" href="${relbase}_classes/index.$ext">Class</a>
 <input type="text" size=10 value="" name="classname"><br>
-<a id="funcsearchlink" class="searchbox-body" href="${relbase}_functions/index.html">Function</a>
+<a id="funcsearchlink" class="searchbox-body" href="${relbase}_functions/index.$ext">Function</a>
 <input type="text" size=10 value="" name="funcname"><br>
-<a class="searchbox-body" href="${relbase}_variables/index.html">Variable</a>
+<a class="searchbox-body" href="${relbase}_variables/index.$ext">Variable</a>
 <input type="text" size=10 value="" name="varname"><br>
-<a class="searchbox-body" href="${relbase}_constants/index.html">Constant</a>
+<a class="searchbox-body" href="${relbase}_constants/index.$ext">Constant</a>
 <input type="text" size=10 value="" name="constname"><br>
-<a class="searchbox-body" href="${relbase}_tables/index.html">Table</a>
+<a class="searchbox-body" href="${relbase}_tables/index.$ext">Table</a>
 <input type="text" size=10 value="" name="tablename"><br>
 <input type="submit" class="searchbox-button" value="Search">
 </form>
