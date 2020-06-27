@@ -1,4 +1,7 @@
-PHPXref 0.7.1 Instructions 
+Fork of PHPXref 0.7.1
+======================
+
+PHPXref 0.7.1 Original Instructions are below
 
 PHPXref 0.7.1
 =============
