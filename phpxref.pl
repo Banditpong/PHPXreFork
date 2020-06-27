@@ -2459,10 +2459,22 @@ sub navtoggle_html {
     my ($relroot) = @_;
     my $html=<<__EOD__;
 <script language="JavaScript" type="text/javascript">
-if (gwGetCookie('xrefnav')=='off')
-  document.write('<p class="navlinks">[ <a href="javascript:navOn()">Show Explorer<\\/a> ]<\\/p>');
-else
-  document.write('<p class="navlinks">[ <a href="javascript:navOff()">Hide Explorer<\\/a> ]<\\/p>');
+var ptag = document.createElement('p');
+var atag = document.createElement('a');
+
+ptag.setAttribute('class', 'navlinks');
+
+if (gwGetCookie('xrefnav')=='off'){
+    atag.setAttribute('href',"javascript:navOn()");
+    atag.innerText = "Show Explorer";
+}else{
+    atag.setAttribute('href',"javascript:navOff()");
+    atag.innerText = "Hide Explorer";
+}
+ptag.append('[');
+ptag.append(atag);
+ptag.append(']');
+document.body.append(ptag);
 </script>
 <noscript>
 <p class="navlinks">
